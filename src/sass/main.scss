@@ -1,5 +1,14 @@
 @import './ambiant.scss';
+@import './navbar.scss';
 
 body {
   color: $dark;
+  font-family: 'Roboto', sans-serif;
+}
+
+a {
+  color: $dark;
+  &:hover {
+    color: $highlight;
+  }
 }
