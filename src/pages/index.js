@@ -1,13 +1,14 @@
 import React from 'react'
 
-import Layout from '../components/layout'
+import MjsLayout from '../components/MjsLayout'
 import SEO from '../components/seo'
+import { Container } from 'react-bootstrap'
 
 const IndexPage = () => (
-  <Layout>
+  <MjsLayout>
     <SEO title="Home" />
-    <h1>Hi people</h1>
-  </Layout>
+    <Container fluid>home</Container>
+  </MjsLayout>
 )
 
 export default IndexPage
