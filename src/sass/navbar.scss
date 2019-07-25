@@ -1,0 +1,15 @@
+.navbar {
+  background: $shade;
+}
+
+.navbar-light {
+  .navbar-nav .nav-link {
+    color: $light;
+    &:focus,
+    &:hover,
+    &.active,
+    &.show {
+      color: $highlight;
+    }
+  }
+}
