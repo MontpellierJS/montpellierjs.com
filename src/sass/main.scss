@@ -1,15 +1,25 @@
 @import './ambiant.scss';
 @import './navbar.scss';
 @import './footer.scss';
+@import './meetups.scss';
 
 body {
-  color: $dark;
-  font-family: 'Roboto', sans-serif;
+  color: $text-important1;
+  font-family: 'Roboto-Light', sans-serif;
+  font-weight: 300;
 }
 
 a {
-  color: $dark;
+  color: $text-important1;
   &:hover {
     color: $highlight;
   }
+}
+
+li p {
+  margin: 0;
+}
+
+.separator {
+  margin: 5px;
 }

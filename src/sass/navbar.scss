@@ -1,10 +1,11 @@
-.navbar {
+.navbar,
+header {
   background: $shade;
 }
 
 .navbar-light {
   .navbar-nav .nav-link {
-    color: $light;
+    color: $text-light;
     &:focus,
     &:hover,
     &.active,
