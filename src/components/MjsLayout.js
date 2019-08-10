@@ -10,7 +10,7 @@ const MjsLayout = ({ children }) => {
   return (
     <>
       <Header />
-      <Container>{children}</Container>
+      <Container className="mainContainer">{children}</Container>
       <Footer />
     </>
   )
