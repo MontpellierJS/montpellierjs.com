@@ -1,5 +1,6 @@
 .list-group-item {
   border: none;
+  border-radius: 0 !important;
 }
 
 .meetup-list-logo {
@@ -42,5 +43,25 @@
   }
   &:last-child::after {
     border: 0;
+  }
+}
+
+.meetup-dates {
+  background-color: $shade2;
+  padding: 10px;
+  .list-group-item {
+    background: none;
+    padding: 0 0 0 10px !important;
+    margin: 0;
+    button {
+      padding: 0;
+      color: $text-light;
+      font-weight: 300;
+      &:focus,
+      &:hover {
+        color: $highlight;
+        text-decoration: none;
+      }
+    }
   }
 }

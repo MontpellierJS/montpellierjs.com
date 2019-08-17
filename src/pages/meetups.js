@@ -1,8 +1,9 @@
 import React from 'react'
 import MjsLayout from '../components/MjsLayout'
 import { graphql } from 'gatsby'
-import { ListGroup } from 'react-bootstrap'
+import { ListGroup, Row, Col } from 'react-bootstrap'
 import Meetup from '../components/Meetups/Meetup'
+import MeetupSidebar from '../components/Meetups/MeetupSidebar'
 
 const meetups = ({ data }) => {
   const meetupsToDisplay = data.allContentfulMeetupPost.nodes.map((node) => (
@@ -11,7 +12,16 @@ const meetups = ({ data }) => {
 
   return (
     <MjsLayout>
-      <ListGroup>{meetupsToDisplay}</ListGroup>
+      <Row>
+        <Col lg={8}>
+          <ListGroup>{meetupsToDisplay}</ListGroup>
+        </Col>
+        <Col>
+          <MeetupSidebar
+            meetups={data.allContentfulMeetupPost.nodes}
+          ></MeetupSidebar>
+        </Col>
+      </Row>
     </MjsLayout>
   )
 }

@@ -1,6 +1,13 @@
-.navbar,
 header {
   background: $shade;
+}
+
+.navbar {
+  background: $shade;
+  height: 90px;
+  .navbar-nav {
+    font-size: 1.2em;
+  }
 }
 
 .navbar-light {
