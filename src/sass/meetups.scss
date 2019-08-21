@@ -4,7 +4,7 @@
 }
 
 .meetup-list-logo {
-  width: 70px;
+  width: 60px;
   margin-right: 20px;
 }
 
@@ -14,7 +14,7 @@
 }
 
 .meetup-list-detail {
-  color: $text-important3;
+  color: $text-important1;
 }
 
 .meetup-list-head {
@@ -27,14 +27,13 @@
 }
 
 .meetup-list-item {
-  height: 90px;
-  overflow: hidden;
   margin: 0;
+  background: $shade2;
   &::after {
     content: ' ';
     width: 50%;
     border-bottom: 1px solid;
-    border-color: $text-important3;
+    border-color: $text-important2;
     position: absolute;
     bottom: 0px;
     left: 0;

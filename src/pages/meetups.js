@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import MjsLayout from '../components/MjsLayout'
 import { graphql } from 'gatsby'
 import { ListGroup, Row, Col } from 'react-bootstrap'
@@ -6,18 +6,40 @@ import Meetup from '../components/Meetups/Meetup'
 import MeetupSidebar from '../components/Meetups/MeetupSidebar'
 
 const meetups = ({ data }) => {
-  const meetupsToDisplay = data.allContentfulMeetupPost.nodes.map((node) => (
-    <Meetup meetupData={node}></Meetup>
-  ))
+  const [datefilter, setDatefilter] = useState(null)
+  const meetupsToDisplay = data.allContentfulMeetupPost.nodes
+    .filter((node) => {
+      const dateToCheck = new Date(node.date)
+      if (!datefilter) {
+        return true
+      }
+      if (
+        dateToCheck.getMonth() === datefilter.getMonth() &&
+        dateToCheck.getFullYear() === datefilter.getFullYear()
+      ) {
+        return true
+      }
+    })
+    .map((node) => <Meetup key={node.id} meetupData={node}></Meetup>)
+
+  const onDateFilterChanged = (filter) => {
+    if (!filter) {
+      setDatefilter(null)
+    } else {
+      const date = new Date(filter)
+      setDatefilter(date)
+    }
+  }
 
   return (
     <MjsLayout>
       <Row>
-        <Col lg={8}>
+        <Col xs={12} sm={12} md={12} lg={8}>
           <ListGroup>{meetupsToDisplay}</ListGroup>
         </Col>
-        <Col>
+        <Col className="d-none d-lg-block" lg={4}>
           <MeetupSidebar
+            onDateFilterSelected={onDateFilterChanged}
             meetups={data.allContentfulMeetupPost.nodes}
           ></MeetupSidebar>
         </Col>

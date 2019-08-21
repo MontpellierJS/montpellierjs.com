@@ -1,7 +1,7 @@
 import React from 'react'
 import { Row, Col, ListGroup, ListGroupItem } from 'react-bootstrap'
 
-const MeetupSidebar = ({ meetups }) => {
+const MeetupSidebar = ({ meetups, onDateFilterSelected }) => {
   const dates = []
   meetups.forEach((meetup) => {
     const date = new Date(meetup.date)
@@ -16,8 +16,15 @@ const MeetupSidebar = ({ meetups }) => {
 
   const datesToDisplay = dates.map((date) => {
     return (
-      <ListGroupItem>
-        <button className="btn btn-link">{date}</button>
+      <ListGroupItem key={date}>
+        <button
+          className="btn btn-link"
+          onClick={() => {
+            onDateFilterSelected(date)
+          }}
+        >
+          {date}
+        </button>
       </ListGroupItem>
     )
   })
@@ -25,7 +32,19 @@ const MeetupSidebar = ({ meetups }) => {
   return (
     <Row>
       <Col>
-        <ListGroup className="meetup-dates">{datesToDisplay}</ListGroup>
+        <ListGroup className="meetup-dates">
+          <ListGroupItem key="all">
+            <button
+              className="btn btn-link"
+              onClick={() => {
+                onDateFilterSelected(null)
+              }}
+            >
+              All
+            </button>
+          </ListGroupItem>
+          {datesToDisplay}
+        </ListGroup>
       </Col>
     </Row>
   )

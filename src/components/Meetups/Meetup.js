@@ -1,7 +1,5 @@
 import React from 'react'
 import { ListGroupItem, Row, Col } from 'react-bootstrap'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import Img from 'gatsby-image'
 
 const Meetup = ({ meetupData }) => {
@@ -24,9 +22,6 @@ const Meetup = ({ meetupData }) => {
           </Col>
         </Row>
       </div>
-      <Row className="meetup-list-content">
-        <Col>{documentToReactComponents(meetupData.text.json)}</Col>
-      </Row>
     </ListGroupItem>
   )
 }

@@ -4,14 +4,14 @@
 @import './meetups.scss';
 
 body {
-  color: $text-important1;
+  color: $text-light;
   font-family: 'Roboto-Light', sans-serif;
   font-weight: 300;
   background: $shade3;
 }
 
 a {
-  color: $text-important1;
+  color: $text-light;
   &:hover {
     color: $highlight;
   }
@@ -26,5 +26,5 @@ li p {
 }
 
 .mainContainer {
-  padding: 0 20px;
+  padding: 15px;
 }
